@@ -43,5 +43,3 @@ class LocationTile extends StatelessWidget {
     );
   }
 }
-
-1233
