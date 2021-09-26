@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'image_banner.dart';
+import 'package:sampleproject/widget/location_tile.dart';
+import '../../widget/image_banner.dart';
 import 'text_section.dart';
 import '../../models/location.dart';
 
@@ -15,13 +16,22 @@ class LocationDetail extends StatelessWidget {
         appBar: AppBar(
           title: Text(location.name),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ImageBanner(location.ImagePath),
-            ...textSections(location)
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ImageBanner(assetPath: location.imagePath),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 4.0),
+                child: LocationTile(
+                  location: location,
+                  darkTheme: false,
+                ),
+              ),
+              ...textSections(location)
+            ],
+          ),
         ));
   }
 
